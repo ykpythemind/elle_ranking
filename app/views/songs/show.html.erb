@@ -1,9 +1,11 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @song.title %>
-</p>
+<h2> <%= @song.title %> </h2>
 
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>
+投票数 <b><%= @song.votes_count %></b>
+
+
+
+<br>
+<br>
+
+<a href="/">戻る</a>

@@ -26,3 +26,23 @@
 a {
   color: #fff;
 }
+a:link, a:hover, a:visited {
+  color: #fff;
+}
+
+h1 {
+  margin-bottom: 3rem;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+td {
+  text-align: left;
+}
+
+.muted {
+  color: #ccccc1;
+}

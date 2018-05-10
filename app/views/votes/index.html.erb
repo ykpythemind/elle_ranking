@@ -1,15 +1,19 @@
 
 <p>好きなだけ投票してくれ</p>
 
-<% @songs.each do |song| %>
+<div class="container">
   <table>
-    <tr>
-      <td></td>
-      <td></td>
-    <tr>
-    <% cache song do %>
-      <td> <%= link_to '投票', votes_path(id: song.to_param), method: :post %> </td>
-      <td> <%= song.title %> </td>
+    <% @songs.each do |song| %>
+      <tr>
+        <td></td>
+        <td></td>
+      <tr>
+      <% cache song do %>
+        <td> <%= link_to '投票', votes_path(song_id: song.to_param), method: :post %> </td>
+        <td> <%= song.title %> </td>
+      <% end %>
     <% end %>
   </table>
-<% end %>
+</div>
+
+<a href="/">戻る</a>

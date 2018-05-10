@@ -1,3 +1,22 @@
 <%= image_tag('ell', style: 'max-width: 400px; width: 60%;') %>
 <br>
+<br>
 <%= link_to '投票する', votes_path %>
+<br>
+<br>
+<br>
+
+
+<div class="container">
+  <table>
+    <% @songs.each_with_index do |song, i| %>
+      <tr>
+        <td> <b><%= i + 1 %></b> </td>
+        <td> <%= link_to song.title, song_path(song) %> </td>
+        <td> <%= song.votes_count %> </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= link_to 'もっと見る', ranks_index_path %>

@@ -1,0 +1,18 @@
+<h2>投票結果</h2>
+
+<%= Time.zone.now %>
+現在
+
+<div class="container">
+  <table>
+    <% @songs.each_with_index do |song, i| %>
+      <tr>
+        <td> <b><%= i + 1 %></b> </td>
+        <td> <%= song.title %> </td>
+        <td> <%= song.votes_count %> </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<a href="/">戻る</a>
