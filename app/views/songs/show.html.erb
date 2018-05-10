@@ -3,7 +3,12 @@
 
 投票数 <b><%= @song.votes_count %></b>
 
+<br>
 <div>
+  <% unless just_created? %>
+    <%= link_to 'この曲に投票する', votes_path(song_id: @song.to_param), method: :post %>
+    |
+  <% end %>
   <%= link_to 'コメントを書く', edit_vote_path(song_id: @song.to_param) %>
 </div>
 
@@ -16,7 +21,14 @@
 </div>
 <% end %>
 
+
+<% if just_created? %>
+  <div>
+    <%= link_to '他の曲に投票する', votes_path if alert || notice %>
+  </div>
+<% end %>
 <br>
 <br>
 
-<a href="/">戻る</a>
+<%= link_to '順位一覧', ranks_index_path %>
+ | <a href="/">戻る</a>

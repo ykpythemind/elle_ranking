@@ -15,7 +15,7 @@ class VotesController < ApplicationController
       if @vote.body.present?
         redirect_to song_path(@song), notice: "#{@song.title}にコメントしたよ"
       else
-        redirect_to root_path, notice: "#{@song.title}に投票したよ"
+        redirect_to song_path(@song), notice: "#{@song.title}に投票したよ"
       end
     else
       redirect_to :index, alert: 'エラーでできなかった・・・ もう一度やってみてください'
