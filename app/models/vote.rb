@@ -3,5 +3,5 @@ class Vote < ApplicationRecord
   counter_culture :song
   validates :name, length: { maximum: 30 }
   validates :body, length: { maximum: 500 }
-  scope :comments, -> { where.not(name: nil, body: nil).order(created_at: :desc) }
+  scope :comments, -> { where.not(body: '').order(created_at: :desc) }
 end
