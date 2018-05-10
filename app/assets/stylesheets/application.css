@@ -61,3 +61,13 @@ td {
   color: #ccccc1;
   text-align: right;
 }
+
+.block {
+  height: 100%;
+  background-color: #e3e3d8;
+  content: ' ';
+}
+
+td.songname {
+  width: 120px;
+}
