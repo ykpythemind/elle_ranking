@@ -12,16 +12,16 @@ class VotesController < ApplicationController
     # FIXME
     @song = Song.find(params[:id] || params[:song_id] || params[:vote][:song_id])
     # FIXME
-    @vote = Vote.create(song_id: @song.to_param, body: params.dig(:vote, :body), name: params.dig(:vote, :name), ip: request.remote_ip)
+    @vote = Vote.new(song_id: @song.to_param, body: params.dig(:vote, :body), name: params.dig(:vote, :name), ip: request.remote_ip)
     # FIXME...
-    if @vote
+    if @vote.save
       if @vote.body.present?
         redirect_to song_path(@song), notice: "#{@song.title}にコメントしたよ"
       else
         redirect_to song_path(@song), notice: "#{@song.title}に投票したよ"
       end
     else
-      redirect_to :index, alert: 'エラーでできなかった・・・ もう一度やってみてください'
+      render :edit, alert: 'エラーでできなかった・・・ もう一度やってみてください'
     end
   end
 
