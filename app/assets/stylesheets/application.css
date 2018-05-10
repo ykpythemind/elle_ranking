@@ -66,6 +66,7 @@ td {
   height: 100%;
   background-color: #e3e3d8;
   content: ' ';
+  color: #000;
 }
 
 td.songname {
