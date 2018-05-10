@@ -3,7 +3,18 @@
 
 投票数 <b><%= @song.votes_count %></b>
 
+<div>
+  <%= link_to 'コメントを書く', edit_vote_path(song_id: @song.to_param) %>
+</div>
 
+<br>
+<% @song.comments.take(100).each do |vote| %>
+<div class="comment">
+  <h4><%= vote.name %></h4>
+  <%= vote.body %>
+  <div class="comment-date"><%= l(vote.created_at) %></div>
+</div>
+<% end %>
 
 <br>
 <br>

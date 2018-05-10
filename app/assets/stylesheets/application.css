@@ -46,3 +46,16 @@ td {
 .muted {
   color: #ccccc1;
 }
+
+.comment {
+  border: 1px solid #363633;
+  border-radius: 5px;
+  padding-bottom: 1rem;
+}
+
+.comment-date {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  color: #ccccc1;
+  text-align: right;
+}
