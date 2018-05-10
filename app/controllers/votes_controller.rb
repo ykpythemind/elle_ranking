@@ -13,9 +13,9 @@ class VotesController < ApplicationController
     @vote = Vote.create(song_id: @song.to_param, body: params.dig(:vote, :body), name: params.dig(:vote, :name))
     if @vote
       if @vote.body.present?
-        redirect_to song_path(@song), notice: 'コメントしたよ'
+        redirect_to song_path(@song), notice: "#{@song.title}にコメントしたよ"
       else
-        redirect_to root_path, notice: '投票したよ'
+        redirect_to root_path, notice: "#{@song.title}に投票したよ"
       end
     else
       redirect_to :index, alert: 'エラーでできなかった・・・ もう一度やってみてください'
