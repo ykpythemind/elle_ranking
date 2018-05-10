@@ -17,6 +17,7 @@
  body {
    background-color: #000;
    color: #eee;
+   line-height: 120%;
  }
 
  #main {
@@ -32,6 +33,8 @@ a:link, a:hover, a:visited {
 
 h1 {
   margin-bottom: 3rem;
+  font-size: 30px;
+  line-height: 130%;
 }
 
 .container {
