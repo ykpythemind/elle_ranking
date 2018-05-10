@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ElleRanking</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <title>エルレで好きな曲投票するやつ</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +12,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="main">
+      <h1>エルレで好きな曲投票する</h1>
+      <p id="notice"><%= notice if notice %></p>
+      <p id="alert"><%= alert if alert %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>
