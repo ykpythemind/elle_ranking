@@ -15,9 +15,9 @@
     <% @songs.each_with_index do |song, i| %>
       <% percentage = (song.votes_count / top_count.to_f) * 100 %>
       <tr>
-        <td style="width: 50px;"> <b><%= i + 1 %></b> </td>
+        <td style="width: 20px;"> <b><%= i + 1 %></b> </td>
         <td class="songname"> <%= link_to song.title, song_path(song) %> </td>
-        <td style="width: 50px;"> <%= song.votes_count %> </td>
+        <td style="width: 35px;"> <%= song.votes_count %> </td>
         <td> <div class="block" style="width: <%= percentage.to_i %>%;">.</div> </td>
       </tr>
     <% end %>
