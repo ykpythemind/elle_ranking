@@ -9,8 +9,12 @@
         <td></td>
       <tr>
       <% cache song do %>
-        <td> <%= link_to '投票', votes_path(song_id: song.to_param), method: :post %> </td>
-        <td> <%= link_to 'コメント書く', edit_vote_path(id: song.to_param) %> </td>
+        <td>
+        <%= link_to votes_path(song_id: song.to_param), method: :post do %>
+          <i class="fa fa-thumbs-up"></i> 投票
+        <% end %>
+        </td>
+        <td> <%= link_to 'コメントする', edit_vote_path(id: song.to_param) %> </td>
         <td> <b><%= song.title %></b> </td>
       <% end %>
     <% end %>
