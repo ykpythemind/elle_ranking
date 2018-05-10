@@ -51,11 +51,13 @@ td {
   border: 1px solid #363633;
   border-radius: 5px;
   padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .comment-date {
   padding-bottom: 1rem;
   padding-top: 1rem;
+  padding-right: 10px;
   color: #ccccc1;
   text-align: right;
 }

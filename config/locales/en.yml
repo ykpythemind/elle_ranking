@@ -35,3 +35,8 @@ en:
     submit:
       create: "送信"
       update: "Confirm changes to %{model}"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      long: "%Y/%m/%d %H:%M"
+      short: "%y/%m/%d %H:%M"

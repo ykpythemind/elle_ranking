@@ -12,7 +12,7 @@
 <div class="comment">
   <h4><%= vote.name %></h4>
   <%= vote.body %>
-  <div class="comment-date"><%= l(vote.created_at) %></div>
+  <div class="comment-date"><%= l(vote.created_at, format: :long) %></div>
 </div>
 <% end %>
 
