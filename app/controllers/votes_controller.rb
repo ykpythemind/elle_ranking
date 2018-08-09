@@ -1,19 +1,13 @@
 class VotesController < ApplicationController
-  def index
-    @songs = Song.all
-  end
+  before_action :set_song
 
-  def edit
-    @song = Song.find(params[:id])
-    @vote = Vote.new(song_id: @song.to_param)
+  def new
+    @vote = @song.votes.build
   end
 
   def create
-    # FIXME
-    @song = Song.find(params[:id] || params[:song_id] || params[:vote][:song_id])
-    # FIXME
-    @vote = Vote.new(song_id: @song.to_param, body: params.dig(:vote, :body), name: params.dig(:vote, :name), ip: request.remote_ip)
-    # FIXME...
+    @vote = @song.votes.build(vote_params)
+    @vote.ip = request.remote_ip
     if @vote.save
       if @vote.body.present?
         redirect_to song_path(@song), notice: "#{@song.title}にコメントしたよ"
@@ -28,6 +22,11 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:song_id, :name, :body)
+    params.require(:vote).permit(:name, :body)
   end
+
+  def set_song
+    @song = Song.find(params[:song_id])
+  end
+
 end

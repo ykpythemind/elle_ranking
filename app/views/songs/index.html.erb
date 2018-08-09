@@ -1,27 +1,22 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Songs</h1>
+<p>何回でもできるので好きなだけ投票してくれ</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <table>
     <% @songs.each do |song| %>
-      <tr>
-        <td><%= song.title %></td>
-        <td><%= link_to 'Show', song %></td>
-        <td><%= link_to 'Edit', edit_song_path(song) %></td>
-        <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% cache song do %>
+        <tr>
+          <td>
+          <%= link_to song_quick_votes_path(song_id: song), method: :put do %>
+            <i class="fa fa-thumbs-up"></i> 投票
+          <% end %>
+          </td>
+          <td> <%= link_to 'コメントする', new_song_vote_path(song_id: song) %> </td>
+          <td><b><%= song.title %></b></td>
+        <tr>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+  </table>
+</div>
 
-<br>
-
-<%= link_to 'New Song', new_song_path %>
+<a href="/">戻る</a>
