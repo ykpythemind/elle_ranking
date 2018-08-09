@@ -6,10 +6,10 @@
 <br>
 <div>
   <% unless just_created? %>
-    <%= link_to 'この曲に投票する', votes_path(song_id: @song.to_param), method: :post %>
+    <%= link_to 'この曲に投票する', song_quick_votes_path(song_id: @song), method: :put %>
     |
   <% end %>
-  <%= link_to 'コメントを書く', edit_vote_path(song_id: @song.to_param) %>
+  <%= link_to 'コメントを書く', new_song_vote_path(song_id: @song) %>
 </div>
 
 <br>
@@ -21,14 +21,13 @@
 </div>
 <% end %>
 
-
 <% if just_created? %>
   <div>
-    <%= link_to '他の曲に投票する', votes_path if alert || notice %>
+    <%= link_to '他の曲に投票する', songs_path %>
   </div>
 <% end %>
 <br>
 <br>
 
-<%= link_to '順位一覧', ranks_index_path %>
+<%= link_to '順位一覧', ranks_path %>
  | <a href="/">戻る</a>
